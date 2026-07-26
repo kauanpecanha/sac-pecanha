@@ -45,9 +45,9 @@ export default function App() {
           <div className="formHeading">
             <span className="brandMark">P</span>
             <p className="eyebrow">SAC PEÇANHA</p>
-            <h1>Envie sua mensagem</h1>
+            <h1>Envie sua reclamação</h1>
             <p className="tagline">
-              você manda, eu obedeço.
+              Você manda, eu obedeço.
               <br />
               <span>Assinado: P.</span>
             </p>
