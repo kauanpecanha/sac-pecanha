@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const WHATSAPP_URL = "http://wa.me/5521989990463";
+const WHATSAPP_PHONE = import.meta.env.WHATSAPP_PHONE?.replace(/\D/g, "");
 
 function ArrowIcon() {
   return (
@@ -17,6 +17,13 @@ export default function App() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    if (!WHATSAPP_PHONE) {
+      window.alert(
+        "Número do WhatsApp não configurado. Defina WHATSAPP_PHONE.",
+      );
+      return;
+    }
+
     const message = [
       "Olá! Gostaria de falar com o SAC PEÇANHA.",
       "",
@@ -24,44 +31,26 @@ export default function App() {
       `*Descrição:* ${description.trim()}`,
     ].join("\n");
 
-    window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    window.open(
+      `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
   }
 
   return (
     <main>
-      <section className="hero" aria-labelledby="page-title">
-        <div className="brand">
-          <span className="brandMark">P</span>
-          <span>SAC PEÇANHA</span>
-        </div>
-
-        <div className="intro">
-          <p className="eyebrow">ATENDIMENTO DIRETO</p>
-          <h1 id="page-title">
-            Como podemos
-            <br />
-            <span>ajudar?</span>
-          </h1>
-          <p className="subtitle">
-            Conte o que aconteceu. Sua mensagem será encaminhada diretamente
-            para nossa equipe pelo WhatsApp.
-          </p>
-        </div>
-
-        <p className="availability">
-          <span aria-hidden="true" />
-          Atendimento disponível
-        </p>
-      </section>
-
       <section className="formPanel" aria-label="Formulário de atendimento">
         <form onSubmit={handleSubmit}>
           <div className="formHeading">
-            <span>01</span>
-            <div>
-              <h2>Envie sua mensagem</h2>
-              <p>Preencha os campos abaixo para iniciar o atendimento.</p>
-            </div>
+            <span className="brandMark">P</span>
+            <p className="eyebrow">SAC PEÇANHA</p>
+            <h1>Envie sua mensagem</h1>
+            <p className="tagline">
+              você manda, eu obedeço.
+              <br />
+              <span>Assinado: P.</span>
+            </p>
           </div>
 
           <label htmlFor="title">Título</label>
@@ -94,8 +83,7 @@ export default function App() {
           </button>
 
           <p className="privacy">
-            Ao enviar, uma nova aba do WhatsApp será aberta. Seus dados não são
-            armazenados neste site.
+            Uma nova aba do WhatsApp será aberta ao enviar.
           </p>
         </form>
       </section>
