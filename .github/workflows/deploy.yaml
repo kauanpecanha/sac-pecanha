@@ -35,7 +35,7 @@ jobs:
       - name: Compilar
         run: npm run build
         env:
-          VITE_WHATSAPP_PHONE: ${{ vars.VITE_WHATSAPP_PHONE }}
+          WHATSAPP_PHONE: ${{ vars.WHATSAPP_PHONE }}
 
       - name: Configurar Pages
         uses: actions/configure-pages@v5
