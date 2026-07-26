@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const WHATSAPP_PHONE = import.meta.env.WHATSAPP_PHONE?.replace(/\D/g, "");
+const WHATSAPP_PHONE = "5521989990463";
 
 function ArrowIcon() {
   return (
@@ -16,13 +16,6 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    if (!WHATSAPP_PHONE) {
-      window.alert(
-        "Número do WhatsApp não configurado. Defina WHATSAPP_PHONE.",
-      );
-      return;
-    }
 
     const message = [
       "Olá! Gostaria de falar com o SAC PEÇANHA.",
