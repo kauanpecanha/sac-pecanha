@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 const WHATSAPP_URL = "http://wa.me/5521989990463";
@@ -12,7 +10,7 @@ function ArrowIcon() {
   );
 }
 
-export default function Home() {
+export default function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
